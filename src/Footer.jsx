@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div>
+    <div className="footer">
       <div className="right">
         <ul>
           <li>contact us</li>

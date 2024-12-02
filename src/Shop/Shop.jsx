@@ -4,8 +4,9 @@ import Basket from "./Basket";
 
 function Shop() {
   return (
-    <div>
+    <div className="shop">
       <Products />
+      <hr />
       <Basket />
     </div>
   );
