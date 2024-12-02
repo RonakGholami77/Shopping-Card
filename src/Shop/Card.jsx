@@ -1,12 +1,12 @@
 import React from "react";
 
 function Card(props) {
-  const { image, name, price } = props;
+  const { id, image, name, price, count, onClickHandler } = props;
 
   function addToCard() {
-    // setBasket((prev) => {
-    //   return { ...prev, props };
-    // });
+    onClickHandler((prev) => {
+      return [...prev, { id, image, name, price, count }];
+    });
   }
 
   return (

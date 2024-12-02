@@ -1,31 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 function Basket(props) {
-  const [basket, setBassket] = useState([
-    {
-      id: 1,
-      image: "./assets/images/Album 1.png",
-      name: "Coat",
-      price: "260",
-      count: 5,
-    },
-    {
-      id: 1,
-      image: "./assets/images/Album 2.png",
-      name: "Hat",
-      price: "80",
-      count: 5,
-    },
-  ]);
+  const { basket, clickHandler } = props;
 
-  function remove(bas) {
-    setBassket((prev) => {
-      const res = basket.filter(bas);
-      return res;
-    });
+  useEffect(() => {
+    console.log(basket);
+    console.log(props);
+  }, [props, basket]);
+
+  function remove(idproduct) {
+    const newBasket = basket.filter((item) => item.id !== idproduct);
+    clickHandler(newBasket);
   }
+  // function remove(idproduct) {
+  //   clickHandler(() => {
+  //     basket.filter((item) => item.id !== idproduct);
+  //   });
+  //   console.log();
+  // }
+
   function reset() {
-    setBassket([]);
+    clickHandler([]);
   }
 
   return (
@@ -56,7 +51,7 @@ function Basket(props) {
                 <span>{bas.price}</span>
               </div>
               <div id="doing">
-                <button onClick={() => remove(bas)}>Remove</button>
+                <button onClick={() => remove(bas.id)}>Remove</button>
               </div>
             </div>
           );
