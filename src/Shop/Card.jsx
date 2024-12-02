@@ -2,6 +2,13 @@ import React from "react";
 
 function Card(props) {
   const { image, name, price } = props;
+
+  function addToCard() {
+    // setBasket((prev) => {
+    //   return { ...prev, props };
+    // });
+  }
+
   return (
     <div className="card">
       <div className="image">
@@ -10,7 +17,7 @@ function Card(props) {
       </div>
       <div className="content">
         <h3>{price} $</h3>
-        <button>Add To Card</button>
+        <button onClick={addToCard}>Add To Card</button>
       </div>
     </div>
   );
